@@ -92,7 +92,7 @@ function _persistent_notification_create
 		_blueprint_update_debug "notification create: [${notification_id}] [${notification_message}]"
 		curl --silent -X POST -H "Authorization: Bearer ${_blueprints_update_token}" -H "Content-Type: application/json" -d "{ \"notification_id\": \"bu:${notification_id}\", \"title\": \"Blueprints Update\", \"message\": \"${notification_message}\" }" "${_blueprints_update_server}/api/services/persistent_notification/create" >/dev/null
 	else
-		_blueprint_update_info "notifications not enabled"
+		_blueprint_update_debug "notifications not enabled"
 	fi
 }
 
@@ -106,7 +106,7 @@ function _persistent_notification_dismiss
 		_blueprint_update_debug "notification dismiss: [${notification_id}]"
 		curl --silent -X POST -H "Authorization: Bearer ${_blueprints_update_token}" -H "Content-Type: application/json" -d "{ \"notification_id\": \"bu:${notification_id}\" }" "${_blueprints_update_server}/api/services/persistent_notification/dismiss" >/dev/null
 	else
-		_blueprint_update_info "notifications not enabled"
+		_blueprint_update_debug "notifications not enabled"
 	fi
 }
 
